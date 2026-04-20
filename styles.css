@@ -1,0 +1,255 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+    
+}
+
+:root {
+    /* Fundo */
+    --bg-primary: #0F172A;      /* Azul bem escuro (principal) */
+    --bg-secondary: #1E293B;    /* Fundo secundário */
+
+    /* Texto */
+    --text-primary: #F8FAFC;    /* Branco suave */
+    --text-secondary: #CBD5F5;  /* Cinza claro */
+
+    /* Destaque */
+    --accent-primary: #D4AF37;  /* Dourado sofisticado */
+    --accent-secondary: #B8962E; /* Dourado mais escuro */
+
+    /* Bordas e detalhes */
+    --border-color: #334155;
+
+    /* Hover */
+    --hover-color: #1D4ED8; /* Azul mais vivo */
+}
+body {
+    background: #002B36;
+
+}
+
+body p {
+    font-size: 15px;
+    color: var(--text-secondary);
+}
+
+body h2 {
+    font-size: 25px;
+    color: var(--text-primary);
+    font-weight: 900;
+}
+
+body h1 {
+     color: var(--accent-secondary);
+    font-weight: 900;
+}
+.navegacao{
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 100px;
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    width: 100%;
+    z-index: 1000;
+    gap: 50px;
+    
+}
+
+.imagemJustica {
+    
+    width: 50px;
+    
+}
+
+.navegacao a {
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 20px;
+    font-weight: 600;
+    transition: 0.3s;
+    margin-right: 20px;
+}
+
+.navegacao a:hover {
+    color: var(--text-secondary);
+    text-decoration: underline;
+ 
+}
+
+
+.navegacao button {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    font-size: 15px;
+    transition: 0,3s;
+
+}
+
+.navegacao button:hover {
+color: var(--accent-secondary);
+transform: scale(1.1);
+}
+
+main {
+    padding-top: 180px;
+}
+#QuemSomos {
+    line-height: 20px;
+    text-align: center;
+}
+#QuemSomos img {
+    max-width: 200px;
+    border-radius: 50%;
+    padding: 5px 0 5px 0;
+}
+
+#QuemSomos h3 {
+    color: var(--text-secondary);
+    font-weight: 800;
+    padding: 0 10px 10px 0;
+}
+
+.text-secund {
+    margin-top: 20px;
+    background: var(--bg-secondary);
+    padding: 30px;
+    text-align: center;
+    line-height: 22px;
+    
+
+}
+.text-secund p {
+    margin-top: 10px;
+   
+    
+}
+
+.Principal {
+    display: flex;
+    flex-direction: column;
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+
+}
+
+.text {
+    text-align: center;
+    align-items: center;
+    padding: 30px;
+    line-height: 20px;
+
+}
+.text h1 {
+    color: var(--text-secondary);
+    font-size: 25px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+    line-height: 30px;
+
+}
+
+
+.cards {
+display: flex;
+justify-content: center;
+gap: 20px;
+
+}
+.card {
+    flex: 1; /* todos ocupam o mesmo espaço */
+    background: var(--bg-secondary);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 20px;
+    border-radius: 12px;
+    border: none;
+    align-items: center;
+    line-height: 20px;
+    
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.card h3 {
+    text-align: center;
+    color: var(--text-primary);
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.card button {
+    display: flex;
+    background: var(--bg-primary);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin: 10px auto 0;
+    color: var(--text-primary);
+    font-weight: 800;
+    transition: 0.3s;
+}
+.card button:hover {
+    color: var(--accent-secondary);
+    transform: scale(1.1);
+
+}
+
+#Servico {
+    align-items: center;
+    line-height: 20px;
+    text-align: center;
+    padding: 20px;
+}
+
+#Servico h2 {
+    padding: 10px;
+}
+#Servico li {
+    list-style: none;
+}
+#Contato {
+     line-height: 20px;
+    text-align: center;
+    padding: 30px;
+}
+.mapa {
+    width: 25px;
+    margin-right: 10px;
+}
+.email {
+    width: 25px;
+    margin-right: 10px;
+}
+.zap {
+    width: 25px;
+    margin-right: 10px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: var(--bg-secondary);
+
+    height: 50px;
+}
