@@ -278,6 +278,18 @@ main {
     margin-bottom: 15px;
 }
 
+.card,
+.cardimg {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.6s;
+}
+
+/* 🔥 TEM QUE FICAR FORA DO MEDIA QUERY */
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
 .btn1 {
     text-align: center;
     background: #D4AF37;
@@ -320,13 +332,6 @@ main {
 .img-serv {
     max-width: 300px;
     border-radius: 4px;
-}
-
-.card,
-.cardimg {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: 0.6s;
 }
 
 .cardimg p {

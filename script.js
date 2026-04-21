@@ -1,65 +1,67 @@
-document.querySelectorAll('.navegacao a').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const id = this.getAttribute('href');
-        document.querySelector(id).scrollIntoView({
-            behavior: 'smooth'
+document.addEventListener("DOMContentLoaded", () => {
+
+    const nav = document.querySelector(".navegacao");
+    const elementos = document.querySelectorAll('.card, .cardimg');
+    const sections = document.querySelectorAll("section");
+    const links = document.querySelectorAll(".navegacao a");
+
+    // ===== SCROLL SUAVE =====
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const id = this.getAttribute('href');
+
+            if (id.startsWith("#")) {
+                e.preventDefault();
+                document.querySelector(id)?.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
         });
     });
-});
 
-window.addEventListener("scroll", () => {
-    const nav = document.querySelector(".navegacao");
+    function animar() {
 
-    if (window.scrollY > 50) {
-        nav.style.background = "rgba(15, 23, 42, 0.95)";
-        nav.style.boxShadow = "0 4px 20px rgba(0,0,0,0.6)";
-    } else {
-        nav.style.background = "rgba(15, 23, 42, 0.8)";
-        nav.style.boxShadow = "none";
+        // NAVBAR
+        if (window.scrollY > 50) {
+            nav.style.background = "rgba(15, 23, 42, 0.95)";
+            nav.style.boxShadow = "0 4px 20px rgba(0,0,0,0.6)";
+        } else {
+            nav.style.background = "rgba(15, 23, 42, 0.8)";
+            nav.style.boxShadow = "none";
+        }
+
+        // CARDS
+        elementos.forEach(el => {
+            const pos = el.getBoundingClientRect().top;
+
+            if (pos < window.innerHeight - 50) {
+                el.classList.add("show");
+            }
+        });
+
+        // MENU ATIVO
+        let current = "";
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 120;
+
+            if (window.scrollY >= sectionTop) {
+                current = section.getAttribute("id");
+            }
+        });
+
+        links.forEach(a => {
+            a.classList.remove("active");
+            if (a.getAttribute("href") === "#" + current) {
+                a.classList.add("active");
+            }
+        });
     }
-});
 
-const elementos = document.querySelectorAll('.card, .cardimg');
+    // roda ao carregar
+    animar();
 
-window.addEventListener('scroll', () => {
-    elementos.forEach(el => {
-        const pos = el.getBoundingClientRect().top;
+    // roda no scroll
+    window.addEventListener("scroll", animar);
 
-        if (pos < window.innerHeight - 100) {
-            el.style.opacity = "1";
-            el.style.transform = "translateY(0)";
-        }
-    });
-});
-
-const sections = document.querySelectorAll("section");
-const links = document.querySelectorAll(".navegacao a");
-
-window.addEventListener("scroll", () => {
-    let current = "";
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-
-        if (scrollY >= sectionTop) {
-            current = section.getAttribute("id");
-        }
-    });
-
-    links.forEach(a => {
-        a.classList.remove("active");
-        if (a.getAttribute("href") === "#" + current) {
-            a.classList.add("active");
-        }
-    });
-});
-
-document.querySelector("form").addEventListener("submit", function(e) {
-    const nome = document.querySelector("#nome").value;
-
-    if (nome === "") {
-        alert("Preencha o nome!");
-        e.preventDefault();
-    }
 });
