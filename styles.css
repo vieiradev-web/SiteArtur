@@ -50,6 +50,7 @@ body p {
 
 body h2 {
     font-size: 28px;
+    letter-spacing: 2px;
     color: #F8FAFC;
     font-weight: 900;
     margin-bottom: 20px;
@@ -69,7 +70,7 @@ body h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 120px;
+    padding: 15px 40px;
     background: rgba(15, 23, 42, 0.8);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -104,6 +105,7 @@ body h1 {
 .navegacao a.active {
     color: #D4AF37;
 }
+
 .btn {
     background: var(--accent-primary);
     color: var(--text-primary);
@@ -126,12 +128,54 @@ main {
     padding-top: 50px;
 }
 
+.container {
+    position: relative;
+    min-height: 100vh;
+    /* 🔥 importante */
+    overflow: hidden;
+}
+
+.bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: -1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    /* escurece o vídeo */
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 #QuemSomos {
     line-height: 1.7;
     max-width: 800px;
     padding: 80px 20px;
     margin: 0 auto;
     text-align: center;
+
 }
 
 #QuemSomos img {
@@ -147,12 +191,15 @@ main {
     font-weight: 800;
     padding: 0 10px 10px 0;
 
+
 }
 
 .text-secund {
+
     margin-top: 20px;
     background: var(--bg-secondary);
-    padding: 30px;
+    width: 100%;
+    padding: 20px;
     text-align: center;
     line-height: 1.05;
 
@@ -160,24 +207,15 @@ main {
 }
 
 .text-secund p {
-    margin: 0 0 20px 0;
+    margin-bottom: 5px;
 
 
-}
-
-.bg-video {
-    margin-top: 100px;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
 }
 
 .Principal {
     display: flex;
     flex-direction: column;
-    padding: 50px 20px;
+    padding: 70px 20px;
     max-width: 1200px;
     margin: 0 auto;
 
@@ -206,11 +244,14 @@ main {
     display: flex;
     justify-content: center;
     gap: 20px;
+    flex-wrap: wrap;
+    /* 🔥 ESSENCIAL */
 
 }
 
 .card {
-   
+    width: 100%;
+    max-width: 320px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -280,25 +321,29 @@ main {
     max-width: 300px;
     border-radius: 4px;
 }
-.card, .cardimg {
+
+.card,
+.cardimg {
     opacity: 0;
     transform: translateY(30px);
-    transition: 0.6s;}
-    
+    transition: 0.6s;
+}
+
 .cardimg p {
     margin-top: 10px;
     line-height: 1.5;
 }
+
 .cardimg:hover {
     transform: translateY(-5px);
     transition: 0.3s;
 }
+
 #Contato {
     line-height: 20px;
     text-align: center;
     padding: 60px;
 }
-
 
 .imgcontact {
     width: 20px;
@@ -306,15 +351,19 @@ main {
     border-radius: 12px;
 
 }
+
 .whatsapp {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: #25D366;
     color: white;
     padding: 15px;
-    border-radius: 50%;
     font-size: 20px;
+}
+
+.click {
+    width: 40px;
+    border-radius: 50%;
 }
 
 footer {
@@ -328,7 +377,6 @@ footer {
 footer p {
     font-size: 12px;
     font-weight: bold;
-    lin
 }
 
 @media (max-width: 768px) {
@@ -338,6 +386,7 @@ footer p {
         flex-direction: column;
         gap: 10px;
     }
+
 
     .cards {
         flex-direction: column;
@@ -368,5 +417,88 @@ footer p {
 
     .imagemlogo {
         width: 140px;
+    }
+
+    #QuemSomos {
+        padding-top: 114px;
+    }
+}
+
+@media (max-width: 399px) {
+
+    /* Garante que nada passe da largura da tela */
+
+
+    /* Ajusta o topo/nav para ficar alinhado */
+    .navegacao {
+        padding: 10px 12px;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    /* Logo e botão ficam certinhos */
+    .imagemlogo {
+        width: 120px;
+    }
+
+    .btn {
+        width: 100%;
+        font-size: 16px;
+        padding: 10px 10px;
+        margin: 0;
+    }
+
+    /* Quem Somos */
+    #QuemSomos {
+        padding: 80px 15px 20px 15px;
+    }
+
+    /* Cards em coluna */
+    .cards,
+    .cardsimg {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .card,
+    .cardimg {
+        max-width: 100%;
+        width: 100%;
+        padding: 20px;
+    }
+
+    /* Serviços */
+    #Servico {
+        padding: 60px 15px;
+        text-align: center;
+    }
+
+    /* Contato */
+    #Contato {
+        padding: 50px 15px;
+    }
+
+    #Contato p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        padding: 20px 15px;
+    }
+
+    footer p {
+        font-size: 10px;
+        text-align: center;
+    }
+
+    /* Video de fundo ajustado */
+    .bg-video {
+        object-fit: cover;
     }
 }
