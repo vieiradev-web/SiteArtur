@@ -8,6 +8,7 @@
     font-style: normal;
     font-variation-settings:
         "wdth" 100;
+        color: var(--text-secondary);
 
 }
 
@@ -40,6 +41,7 @@
 
 body {
     background: #002B36;
+    
 
 }
 
@@ -48,7 +50,7 @@ body p {
     color: var(--text-secondary);
 }
 
-body h2 {
+body h2,h3 {
     font-size: 28px;
     letter-spacing: 2px;
     color: #F8FAFC;
@@ -159,7 +161,7 @@ main {
     
 
     /* escurece o vídeo */
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.336);
     z-index: 0;
 }
 
@@ -211,6 +213,7 @@ main {
 
 .text-secund p {
     margin-bottom: 5px;
+    color: var(--text-primary);
 
 
 }
@@ -293,6 +296,8 @@ main {
     opacity: 1;
     transform: translateY(0);
 }
+
+
 .btn1 {
     text-align: center;
     background: #D4AF37;
@@ -347,6 +352,24 @@ main {
     transition: 0.3s;
 }
 
+.container-1{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+
+}
+
+.list-ul {
+    list-style: none;
+    margin-left: 30px;
+    align-items: center;
+}
+span {
+    font-size: bold;
+    color: #c5a880;
+}
 #Contato {
     line-height: 20px;
     text-align: center;
@@ -370,7 +393,7 @@ main {
 }
 
 .click {
-    width: 40px;
+    width: 50px;
     border-radius: 50%;
 }
 
